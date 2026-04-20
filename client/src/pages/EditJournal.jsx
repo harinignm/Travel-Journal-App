@@ -6,6 +6,7 @@ import { MapPin, Calendar, Type, MessageSquare, Save, Loader2, Smile, X } from '
 import api from '../api/api';
 import ImageUpload from '../components/ImageUpload';
 import MapView from '../components/MapView';
+import { BASE_URL } from '../constants';
 
 const EditJournal = () => {
     const { id } = useParams();
@@ -208,7 +209,7 @@ const EditJournal = () => {
                             <div className="grid grid-cols-3 gap-4">
                                 {existingImages.map((img, idx) => (
                                     <div key={idx} className="relative aspect-square rounded-xl overflow-hidden group">
-                                        <img src={`${import.meta.env.VITE_BASE_URL}${img}`} alt="Existing" className="w-full h-full object-cover" />
+                                        <img src={`${BASE_URL}${img}`} alt="Existing" className="w-full h-full object-cover" />
                                         <button 
                                             type="button"
                                             onClick={() => removeExistingImage(img)}

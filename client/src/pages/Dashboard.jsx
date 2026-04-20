@@ -6,6 +6,7 @@ import JournalCard from '../components/JournalCard';
 import { toast } from 'react-hot-toast';
 import SkeletonCard from '../components/SkeletonCard';
 import { Link } from 'react-router-dom';
+import { BASE_URL } from '../constants';
 
 const quotes = [
     "The world is a book and those who do not travel read only one page.",
@@ -109,7 +110,7 @@ const Dashboard = () => {
                 >
                     <div className="w-full md:w-1/2 h-64 md:h-full relative overflow-hidden">
                         <img 
-                            src={`${import.meta.env.VITE_BASE_URL}${memoryOfDay.images[0]}`} 
+                            src={`${BASE_URL}${memoryOfDay.images[0]}`} 
                             alt={memoryOfDay.title}
                             className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                         />

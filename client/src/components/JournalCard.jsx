@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Calendar, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { BASE_URL } from '../constants';
 
 const JournalCard = ({ journal }) => {
     return (
@@ -11,7 +12,7 @@ const JournalCard = ({ journal }) => {
         >
             <div className="relative h-64 overflow-hidden">
                 <img 
-                    src={`${import.meta.env.VITE_BASE_URL}${journal.images[0]}`} 
+                    src={`${BASE_URL}${journal.images[0]}`} 
                     alt={journal.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />

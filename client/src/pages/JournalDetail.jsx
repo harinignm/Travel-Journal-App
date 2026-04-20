@@ -5,6 +5,7 @@ import api from '../api/api';
 import { MapPin, Calendar, Trash2, Edit2, ChevronLeft, Maximize2, X } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 import MapView from '../components/MapView';
+import { BASE_URL } from '../constants';
 
 const JournalDetail = () => {
     const { id } = useParams();
@@ -56,7 +57,7 @@ const JournalDetail = () => {
             <div className="h-[70vh] relative overflow-hidden">
                 <motion.div style={{ y: y1 }} className="absolute inset-0">
                     <img 
-                        src={`${import.meta.env.VITE_BASE_URL}${journal.images[0]}`} 
+                        src={`${BASE_URL}${journal.images[0]}`} 
                         alt={journal.title}
                         className="w-full h-full object-cover"
                     />
@@ -114,11 +115,11 @@ const JournalDetail = () => {
                                     <motion.div 
                                         key={idx}
                                         whileHover={{ scale: 1.02 }}
-                                        onClick={() => setSelectedImg(`${import.meta.env.VITE_BASE_URL}${img}`)}
+                                        onClick={() => setSelectedImg(`${BASE_URL}${img}`)}
                                         className="rounded-2xl overflow-hidden cursor-pointer h-64 shadow-xl"
                                     >
                                         <img 
-                                            src={`${import.meta.env.VITE_BASE_URL}${img}`} 
+                                            src={`${BASE_URL}${img}`} 
                                             alt={`Gallery ${idx}`} 
                                             className="w-full h-full object-cover"
                                         />
