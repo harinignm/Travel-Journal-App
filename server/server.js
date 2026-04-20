@@ -15,11 +15,15 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-    origin: [
-        "http://localhost:5173",
-        "https://travel-journal-app-ai2v.vercel.app",
-        "https://travel-journal-app-vyc1.vercel.app"
-    ],
+    origin: function (origin, callback) {
+        // Allow requests with no origin (mobile apps, Postman)
+        if (!origin) return callback(null, true);
+        // Allow localhost and any vercel.app domain
+        if (origin.includes('localhost') || origin.includes('vercel.app') || origin.includes('onrender.com')) {
+            return callback(null, true);
+        }
+        callback(new Error('Not allowed by CORS'));
+    },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
